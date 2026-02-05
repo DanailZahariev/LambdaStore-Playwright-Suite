@@ -21,6 +21,7 @@ export class RegisterPage extends BasePage {
     public readonly emailError: Locator;
     public readonly telephoneError: Locator;
     public readonly passwordError: Locator;
+    public readonly passwordMismatchError: Locator;
 
 
     constructor(page: Page) {
@@ -42,6 +43,7 @@ export class RegisterPage extends BasePage {
         this.emailError = page.locator('#input-email + div.text-danger');
         this.telephoneError = page.locator('#input-telephone + div.text-danger');
         this.passwordError = page.locator('#input-password + div.text-danger');
+        this.passwordMismatchError = page.locator('#input-confirm + .text-danger');
     }
 
     async registerUser(userData: UserData): Promise<void> {
