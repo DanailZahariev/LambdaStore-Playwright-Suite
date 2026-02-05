@@ -108,4 +108,16 @@ test.describe("Registration Form - Password don't match", () => {
         await expect(registerPage.passwordMismatchError).toBeVisible();
         await expect(registerPage.passwordMismatchError).toHaveText(ErrorMessages.Register.PasswordDontMatch);
     })
-})
+});
+
+test.describe('Policy Validation', () => {
+    test('Should require Privacy Policy agreement', async ({registerPage}) => {
+        const disagreeingUser = createRandomUser({agreeToPrivacyPolicy: false});
+
+        await registerPage.navigate();
+        await registerPage.registerUser(disagreeingUser);
+
+        await expect(registerPage.policyError).toBeVisible();
+        await expect(registerPage.policyError).toContainText('Warning: You must agree to the Privacy Policy!');
+    });
+});

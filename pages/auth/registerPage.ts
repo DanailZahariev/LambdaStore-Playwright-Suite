@@ -22,7 +22,7 @@ export class RegisterPage extends BasePage {
     public readonly telephoneError: Locator;
     public readonly passwordError: Locator;
     public readonly passwordMismatchError: Locator;
-
+    public readonly policyError: Locator;
 
     constructor(page: Page) {
         super(page, 'https://ecommerce-playground.lambdatest.io/index.php?route=account/register');
@@ -44,6 +44,7 @@ export class RegisterPage extends BasePage {
         this.telephoneError = page.locator('#input-telephone + div.text-danger');
         this.passwordError = page.locator('#input-password + div.text-danger');
         this.passwordMismatchError = page.locator('#input-confirm + .text-danger');
+        this.policyError = page.locator('.alert-danger');
     }
 
     async registerUser(userData: UserData): Promise<void> {
@@ -60,7 +61,10 @@ export class RegisterPage extends BasePage {
             await this.clickElement(this.newsLetterNoRadio);
         }
 
-        await this.clickElement(this.policyCheckbox);
+        if (userData.agreeToPrivacyPolicy) {
+            await this.clickElement(this.policyCheckbox);
+        }
+
         await this.clickElement(this.continueButton);
     }
 
