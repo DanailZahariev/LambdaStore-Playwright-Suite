@@ -6,4 +6,5 @@ export interface UserData {
     password: string;
     confirmPassword: string;
     newsletter: boolean;
+    agreeToPrivacyPolicy: boolean
 }

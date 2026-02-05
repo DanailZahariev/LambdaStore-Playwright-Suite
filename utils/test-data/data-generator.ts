@@ -10,7 +10,8 @@ export function createRandomUser(overrides?: Partial<UserData>): UserData {
         telephone: faker.phone.number(),
         password: password,
         confirmPassword: password,
-        newsletter: faker.datatype.boolean()
+        newsletter: faker.datatype.boolean(),
+        agreeToPrivacyPolicy: true
     }
     return {...defaultUser, ...overrides};
 }
