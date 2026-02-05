@@ -4,5 +4,6 @@ export interface UserData {
     email: string;
     telephone: string;
     password: string;
+    confirmPassword: string;
     newsletter: boolean;
 }
