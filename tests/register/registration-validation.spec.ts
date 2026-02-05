@@ -118,6 +118,6 @@ test.describe('Policy Validation', () => {
         await registerPage.registerUser(disagreeingUser);
 
         await expect(registerPage.policyError).toBeVisible();
-        await expect(registerPage.policyError).toContainText('Warning: You must agree to the Privacy Policy!');
+        await expect(registerPage.policyError).toContainText(ErrorMessages.Register.PolicyWarning);
     });
 });

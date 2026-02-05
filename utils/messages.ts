@@ -7,7 +7,8 @@ export const ErrorMessages = {
         Password: 'Password must be between 4 and 20 characters!',
         PrivacyPolicy: 'Warning: You must agree to the Privacy Policy!',
         EmailExists: 'Warning: E-Mail Address is already registered!',
-        PasswordDontMatch: 'Password confirmation does not match password!'
+        PasswordDontMatch: 'Password confirmation does not match password!',
+        PolicyWarning: 'Warning: You must agree to the Privacy Policy!'
     },
     Login: {
         NoMatch: 'Warning: No match for E-Mail Address and/or Password.'
