@@ -25,7 +25,7 @@ export class RegisterPage extends BasePage {
     public readonly policyError: Locator;
 
     constructor(page: Page) {
-        super(page, 'https://ecommerce-playground.lambdatest.io/index.php?route=account/register');
+        super(page, 'account/register');
 
         this.firstNameInput = page.locator('#input-firstname');
         this.lastNameInput = page.locator('#input-lastname');

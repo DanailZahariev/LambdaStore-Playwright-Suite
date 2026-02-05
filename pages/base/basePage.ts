@@ -5,9 +5,9 @@ export abstract class BasePage {
     protected page: Page
     protected url: string
 
-    protected constructor(page: Page, url: string) {
+    protected constructor(page: Page, urlPart: string) {
         this.page = page
-        this.url = url
+        this.url = `index.php?route=${urlPart}`;
     }
 
     protected async clickElement(locator: Locator): Promise<void> {
