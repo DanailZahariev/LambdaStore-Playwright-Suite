@@ -6,7 +6,8 @@ export const ErrorMessages = {
         Telephone: 'Telephone must be between 3 and 32 characters!',
         Password: 'Password must be between 4 and 20 characters!',
         PrivacyPolicy: 'Warning: You must agree to the Privacy Policy!',
-        EmailExists: 'Warning: E-Mail Address is already registered!'
+        EmailExists: 'Warning: E-Mail Address is already registered!',
+        PasswordDontMatch: 'Password confirmation does not match password!'
     },
     Login: {
         NoMatch: 'Warning: No match for E-Mail Address and/or Password.'
