@@ -19,8 +19,8 @@ export class RegisterPage extends BasePage {
     public readonly firstNameError: Locator;
     public readonly lastNameError: Locator;
     public readonly emailError: Locator;
-    // public readonly telephoneError: Locator;
-    // public readonly passwordError: Locator;
+    public readonly telephoneError: Locator;
+    public readonly passwordError: Locator;
 
 
     constructor(page: Page) {
@@ -40,6 +40,8 @@ export class RegisterPage extends BasePage {
         this.firstNameError = page.locator('#input-firstname + div.text-danger');
         this.lastNameError = page.locator('#input-lastname + div.text-danger');
         this.emailError = page.locator('#input-email + div.text-danger');
+        this.telephoneError = page.locator('#input-telephone + div.text-danger');
+        this.passwordError = page.locator('#input-password + div.text-danger');
     }
 
     async registerUser(userData: UserData): Promise<void> {
@@ -48,7 +50,7 @@ export class RegisterPage extends BasePage {
         await this.fillField(this.emailInput, userData.email);
         await this.fillField(this.telephoneInput, userData.telephone);
         await this.fillField(this.passwordInput, userData.password);
-        await this.fillField(this.confirmPasswordInput, userData.password);
+        await this.fillField(this.confirmPasswordInput, userData.confirmPassword);
 
         if (userData.newsletter) {
             await this.clickElement(this.newsLetterYesRadio);
