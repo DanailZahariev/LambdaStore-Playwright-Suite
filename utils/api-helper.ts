@@ -2,7 +2,7 @@ import {APIRequestContext} from "@playwright/test";
 import {UserData} from "./types";
 
 export async function generateUserViaApi(request: APIRequestContext, user: UserData) {
-    const response = await request.post('https://ecommerce-playground.lambdatest.io/index.php?route=account/register/save', {
+    const response = await request.post('index.php?route=account/register', {
         form: {
             firstname: user.firstName,
             lastname: user.lastName,
