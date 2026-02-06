@@ -96,6 +96,23 @@ test.describe("Registration Form - Password Invalid Boundaries (BVA)", () => {
             await expect(registerPage.passwordError).toBeVisible();
         });
     }
+
+    // BUG, according to warning message password above 20 chars are not accepted.
+    test('Should show error when Password is too long (21 chars)', async ({ registerPage }) => {
+        test.fail();
+
+        const longPass = 'A'.repeat(21);
+        const user = createRandomUser({
+            password: longPass,
+            confirmPassword: longPass
+        });
+
+        await registerPage.navigate();
+        await registerPage.registerUser(user);
+
+        await expect(registerPage.passwordError).toBeVisible();
+        await expect(registerPage.passwordError).toHaveText('Password must be between 4 and 20 characters!');
+    });
 });
 
 test.describe("Registration Form - Password don't match", () => {
